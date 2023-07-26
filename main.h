@@ -20,10 +20,21 @@ int _strlen(const char *str);
 int _strcmp(char *s1, char *s2);
 int _strncmp(const char *f, const char *s, int n);
 
+#define READ_BUF_SIZE 1024
+#define WRITE_BUF_SIZE 1024
+#define BUF_FLUSH -1
+
+
 /*command_handler*/
 char *_getpath(void);
 char **put_token(char *str);
 void exec(char *c, char **cmd);
+ssize_t get_input(info_t *);
+int _getline(info_t *, char **, size_t *);
+void sigintHandler(int);
+int _erratoi(char *);
+void print_error(info_t *, char *);
+int print_d(int, int);
 char *app_path(char *path, char *cmd);
 char *sch_path(char **p, char *cmd);
 
