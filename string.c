@@ -1,89 +1,59 @@
 #include "main.h"
 
-/* Compares two strings*/
 
-int _strcmp(char *s1, char *s2)
+/* copies a string*/
+char *_strncpy(char *dest, char *src, int n)
 {
-	int run;
-
-	if (s1 == NULL || s2 == NULL)
-		return (0);
-	while (*s1 && *s2)
-		{
-			run = *s1 - *s2;
-				if (run != 0)
-					break;
-						s1++;
-						s2++;
-		}
-					return (run);
-
+	int i, j;
+	char *t = dest;
+			
+				i = 0;
+					while (src[i] != '\0' && i < n - 1)
+							{
+										dest[i] = src[i];
+												i++;
+													}
+						if (i < n)
+								{
+											j = i;
+													while (j < n)
+																{
+																				dest[j] = '\0';
+																							j++;
+																									}
+														}
+							return (t);
 }
 
-
-/* duplicate string */
-
-char *duplicate_str(char *str)
+/* concatenates two strings  */
+char *_strncat(char *dest, char *src, int n)
 {
-	char *b;
-	int i, len;
-
-	if (str == NULL)
-		{
-			return (NULL);
-		}
-
-	len = _strlen(str);
-
-		b = malloc(sizeof(char) * (len + 1));
-			if (b == NULL)
-				{
-					return (NULL);
-				}
-			for (i = 0; *str != '\0'; str++, i++)
-				{
-					b[i] = str[0];
-												}
-						b[i++] = '\0';
-
-										return (p);
+	int i, j;
+		char *t = dest;
+			
+				i = 0;
+					j = 0;
+						while (dest[i] != '\0')
+									i++;
+							while (src[j] != '\0' && j < n)
+									{
+												dest[i] = src[j];
+														i++;
+																j++;
+																	}
+								if (j < n)
+											dest[i] = '\0';
+									return (t);
 }
 
-/*compare strings*/
-int _strncmp(const char *f, const char *s, int n)
+/*locates a character in a string */
+char *_strchr(char *s, char c)
 {
-		int il;
-
-		for (il = 0; f[il] && s[il] && il < n; il++)
-			{
-				if (f[il] != s[il])
-						return (f[il] - s[il]);
-									}
-				return (0);
-}
-
-
-/*length of a strin*/
-
-int _strlen(const char *str)
-{
-	size_t i = 0;
-
-	while (str[i])
-		i++;
-		return (i);
-}
-
-
-/*searches a string */
-
-char *check_str(char *str, int chrs)
-{
-	while (*str)
-		{
-			if (*str == chrs)
-					return (str);
-						str++;
-										}
+		do {
+				if (*s == c)
+									return (s);
+						} while (*s++ != '\0');
+		
 			return (NULL);
 }
+
