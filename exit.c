@@ -1,20 +1,18 @@
 #include "main.h"
 
-
-/* copies a string*/
+/* copies a string   */
 char *_strncpy(char *dest, char *src, int n)
 {
-	int i, j;
-	char *t = dest;
-			
+		int i, j;
+		char *s = dest;
 				i = 0;
 					while (src[i] != '\0' && i < n - 1)
 							{
 										dest[i] = src[i];
 												i++;
 													}
-						if (i < n)
-								{
+			if (i < n)
+					{
 											j = i;
 													while (j < n)
 																{
@@ -22,15 +20,15 @@ char *_strncpy(char *dest, char *src, int n)
 																							j++;
 																									}
 														}
-							return (t);
+							return (s);
 }
 
 /* concatenates two strings  */
 char *_strncat(char *dest, char *src, int n)
 {
-	int i, j;
-		char *t = dest;
-			
+		int i, j;
+			char *s = dest;
+
 				i = 0;
 					j = 0;
 						while (dest[i] != '\0')
@@ -43,17 +41,18 @@ char *_strncat(char *dest, char *src, int n)
 																	}
 								if (j < n)
 											dest[i] = '\0';
-									return (t);
+									return (s);
 }
 
-/*locates a character in a string */
+/*locates a character in a string  */
 char *_strchr(char *s, char c)
 {
 		do {
-				if (*s == c)
+					if (*s == c)
 									return (s);
 						} while (*s++ != '\0');
-		
+
 			return (NULL);
 }
+
 
